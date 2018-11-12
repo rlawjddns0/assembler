@@ -8,7 +8,11 @@ int is_valid(char *op, char *args)
 	/********************************/
     /*  							*/
 	/*         syntax check         */
-    /*  							*/
+    /*  			adsfasdfasdfdsf
+asdfasdfasdfasd
+fadsfadsfasdfasdfasdf
+asdfasdfasdfasdf
+				*/
 	/********************************/
 	
 	return 1;
