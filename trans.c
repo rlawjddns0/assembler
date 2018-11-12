@@ -11,19 +11,21 @@ int instr_trans(char *op, char *args, char* mcode)
 	}
 
 
-	
+	strcpy(mcode,"AB CD EF");	
 	/********************************/
     /*  							*/
 	/*    generate machine code     */
     /*  							*/
 	/********************************/
-	
-	for(i=0; args[i]!=NULL; i++)
-	{
+
+
+
+	for(i=0; args[i]!=NULL;i++){
 		if(args[i]==',')
 			break;
 	}
 	i++;
+
 	index=i;
 
 	if(args[0]=='%' &&args[index]=='%'){
@@ -32,12 +34,12 @@ int instr_trans(char *op, char *args, char* mcode)
 
 	if(args[0]=='%' &&args[index]=='0'&&args[index+1]=='x')
 		strcpy(mcode,"a3");//reg(eax) to mem (5)
-
+	
 
 	if(args[0]=='$'){
 		if(args[index+2]=='a')
 		{
-			strcpy(mcode,"b9");
+			strcpy(mcode,"b8");
 		}
 		else if(args[index+2]=='c')
 		{
@@ -45,11 +47,11 @@ int instr_trans(char *op, char *args, char* mcode)
 		}
 		else if(args[index+2]=='d')
 		{
-			strcpy(mcode,"b9");
+			strcpy(mcode,"ba");
 		}
 		else if(args[index+2]=='b')
 		{
-			strcpy(mcode,"b9");
+			strcpy(mcode,"bb");
 		}
 	}//immediate to reg(6)
 
@@ -59,12 +61,14 @@ int instr_trans(char *op, char *args, char* mcode)
 	{
 		if(args[0]=='0')
 			strcpy(mcode,"a1");
-	}//2.3
+		else if(args[index]=='%'){
+			if(args[index-2]==')')
+				strcpy(mcode,"8b");
 
-	if(args[index]=='%'){
-		if(args[index-2]==')')
-			strcpy(mcode,"a1");
-	}//
+		}
+	}
+
+
 
 	
 

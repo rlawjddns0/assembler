@@ -34,7 +34,7 @@ int is_valid(char *op, char *args)
 		else if(args[index+1]=='(')
 			return 0;
 	}
-	if(args[0]='$' && args[index+1]=='$')
+	if(args[0]=='$' && args[index+1]=='$')
 		return 0;
 
 	if(args[index+1]=='$')
