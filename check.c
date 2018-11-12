@@ -20,9 +20,9 @@ int is_valid(char *op, char *args)
 	{
 		return 0;
 	}
-	for(i=0; i<strlen(args); i++)
+	for(i=0; args[i]!=NULL; i++)
 	{
-		if(str[i]=='.')
+		if(args[i]==',')
 			break;
 	}
 	
@@ -41,7 +41,7 @@ int is_valid(char *op, char *args)
 		return 0;
 
 
-return 1;
+	return 1;
 }	
 			
 		
